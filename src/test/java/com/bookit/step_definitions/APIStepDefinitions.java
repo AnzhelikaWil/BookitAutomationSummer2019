@@ -1,4 +1,5 @@
 package com.bookit.step_definitions;
+
 import com.bookit.pojos.Room;
 import com.bookit.utilities.APIUtilities;
 import io.cucumber.java.bs.A;
@@ -18,7 +19,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class ApiStepDefinitions {
+public class APIStepDefinitions {
     private Response response;
     private String token;
     private JsonPath jsonPath;
@@ -59,10 +60,12 @@ public class ApiStepDefinitions {
     public void user_verifies_that_response_status_code_is(int expected) {
         Assert.assertEquals(expected, response.statusCode());
     }
+
     /**
      * Any number in cucumber test step, becomes step definition  (variable)
      * By changing this number, you are not changing a context of test step
      */
+
 
     @When("user sends POST request to {string} with following information:")
     public void user_sends_POST_request_to_with_following_information(String path, List<Map<String, String>> students) {
@@ -78,6 +81,7 @@ public class ApiStepDefinitions {
 
         }
     }
+
     @Then("user should be able to see all room names")
     public void user_should_be_able_to_see_all_room_names() {
         List<Room> rooms = response.jsonPath().getList("", Room.class);
@@ -99,6 +103,7 @@ public class ApiStepDefinitions {
             System.out.println(room.getName());
         }
     }
+
     @Then("user payload contains following room names:")
     public void user_payload_contains_following_room_names(List<String> dataTable) {
 

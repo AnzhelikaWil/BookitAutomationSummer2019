@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features="src/test/resources/features",
         glue="com/bookit/step_definitions",
         dryRun = false,
-        tags="api"
+        tags="@api @d"
 )
 public class CukesRunner {
 
